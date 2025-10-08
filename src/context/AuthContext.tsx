@@ -15,7 +15,6 @@ interface AuthContextType {
   loading: boolean;
   signUp: (email: string, password: string) => Promise<UserCredential>;
   signIn: (email: string, password: string) => Promise<UserCredential>;
-  signOut: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -72,55 +71,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  // Sign out function
-  const signOut = async (): Promise<void> => {
-    try {
-      await firebaseSignOut(auth);
-      
-      // Clear localStorage
-      localStorage.removeItem('authToken');
-      localStorage.removeItem('userId');
-      
-      message.success('Signed out successfully!');
-    } catch (error: any) {
-      message.error(error.message || 'Failed to sign out');
-      throw error;
-    }
-  };
 
-  useEffect(() => {
-    // Subscribe to auth state changes
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
-      
-      if (user) {
-        // User is signed in, update localStorage
-        try {
-          const token = await user.getIdToken();
-          localStorage.setItem('authToken', token);
-          localStorage.setItem('userId', user.uid);
-        } catch (error) {
-          console.error('Error getting user token:', error);
-        }
-      } else {
-        // User is signed out, clear localStorage
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('userId');
-      }
-      
-      setLoading(false);
-    });
 
-    // Cleanup subscription on unmount
-    return unsubscribe;
-  }, []);
 
   const value: AuthContextType = {
     currentUser,
     loading,
     signUp,
     signIn,
-    signOut
   };
 
   return (
