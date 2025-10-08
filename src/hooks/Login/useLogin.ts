@@ -10,7 +10,7 @@ interface LoginFormValues {
 
 export const useLogin = () => {
   const [loading, setLoading] = useState(false);
-  const { signIn } = useAuth();
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -20,7 +20,7 @@ export const useLogin = () => {
   const handleLogin = async (values: LoginFormValues) => {
     setLoading(true);
     try {
-      await signIn(values.email, values.password);
+
       navigate(from, { replace: true });
     } catch (error) {
       console.error("Login error:", error);

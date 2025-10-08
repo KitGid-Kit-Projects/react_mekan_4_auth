@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Form } from 'antd';
-import { useAuth } from '@/context/AuthContext';
 
 
 interface AuthFormValues {
@@ -15,7 +14,7 @@ type Mode = 'login' | 'signup';
 export const useAuthForm = (mode: Mode) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const { signIn, signUp } = useAuth();
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,10 +24,10 @@ export const useAuthForm = (mode: Mode) => {
     setLoading(true);
     try {
       if (mode === 'login') {
-        await signIn(values.email, values.password);
+
         navigate(from, { replace: true });
       } else {
-        await signUp(values.email, values.password);
+
         navigate('/dashboard');
       }
     } catch (error) {
