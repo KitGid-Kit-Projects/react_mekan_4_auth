@@ -15,7 +15,7 @@ type Mode = 'login' | 'signup';
 export const useAuthForm = (mode: Mode) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,7 +28,6 @@ export const useAuthForm = (mode: Mode) => {
         await signIn(values.email, values.password);
         navigate(from, { replace: true });
       } else {
-        await signUp(values.email, values.password);
         navigate('/dashboard');
       }
     } catch (error) {
