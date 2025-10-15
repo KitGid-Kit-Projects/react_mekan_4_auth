@@ -1,44 +1,44 @@
-import React, { useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
-import { Result, Button } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
+import React, { useEffect } from "react"; // Import React and useEffect hook
+import { useLocation, Link } from "react-router-dom"; // Import hooks and components for routing
+import { Result, Button } from "antd"; // Import Ant Design components for layout and styling
+import { HomeOutlined } from "@ant-design/icons"; // Import home icon for button
 
-const NotFound: React.FC = () => {
-  const location = useLocation();
+const NotFound: React.FC = () => { // Define NotFound component
+  const location = useLocation(); // Access current URL location
 
-  useEffect(() => {
+  useEffect(() => { // Log when user visits a non-existent route
     console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
+      "404 Error: User attempted to access non-existent route:", // Log message
+      location.pathname // Display the missing route path
     );
-  }, [location.pathname]);
+  }, [location.pathname]); // Re-run effect when pathname changes
 
-  return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
+  return ( // Render 404 page layout
+    <div style={{ // Outer container styling
+      minHeight: '100vh', // Full viewport height
+      display: 'flex', // Enable flex layout
+      justifyContent: 'center', // Center horizontally
+      alignItems: 'center', // Center vertically
+      background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' // Subtle gradient background
     }}>
-      <Result
-        status="404"
-        title="404"
-        subTitle="Sorry, the page you visited does not exist."
-        extra={
-          <Link to="/">
+      <Result // Ant Design's Result component for status pages
+        status="404" // Set status type
+        title="404" // Main title text
+        subTitle="Sorry, the page you visited does not exist." // Subtitle message
+        extra={ // Extra content (button)
+          <Link to="/"> {/* Link back to homepage */}
             <Button 
-              type="primary" 
-              icon={<HomeOutlined />}
-              style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                border: 'none',
-                borderRadius: '8px',
-                height: '40px',
-                fontWeight: '500'
+              type="primary" // Primary button style
+              icon={<HomeOutlined />} // Home icon on the button
+              style={{ // Custom button styling
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // Gradient background
+                border: 'none', // Remove default border
+                borderRadius: '8px', // Rounded corners
+                height: '40px', // Button height
+                fontWeight: '500' // Medium bold text
               }}
             >
-              Back Home
+              Back Home {/* Button label */}
             </Button>
           </Link>
         }
@@ -47,4 +47,4 @@ const NotFound: React.FC = () => {
   );
 };
 
-export default NotFound;
+export default NotFound; // Export NotFound component as default
