@@ -1,44 +1,78 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { ConfigProvider } from 'antd';
-import { AuthProvider, useAuth } from "./context/AuthContext";
+// Import React for component creation
+import React from 'react'
 
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import NotFound from "./pages/NotFound";
+// Import router utilities for navigation and route configuration
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
-// Component to handle root route redirection
+// Import Ant Design's ConfigProvider for global theming
+import { ConfigProvider } from 'antd'
+
+// Import the AuthProvider (context) and useAuth hook to manage authentication state
+import { AuthProvider, useAuth } from "./context/AuthContext"
+
+// Import main pages for the app
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
+import NotFound from "./pages/NotFound"
+
+// ===============================
+// RootRedirect Component
+// ===============================
+
+// Handles redirecting users based on authentication state
 const RootRedirect: React.FC = () => {
-  const { currentUser, loading } = useAuth();
-  
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  
-  return currentUser ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />;
-};
+  // Access currentUser and loading state from authentication context
+  const { currentUser, loading } = useAuth()
 
+  // If auth state is still loading, display a temporary loading screen
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  // Once loading finishes:
+  // - If the user is logged in, redirect to the dashboard
+  // - If not logged in, redirect to the login page
+  return currentUser
+    ? <Navigate to="/dashboard" replace />
+    : <Navigate to="/login" replace />
+}
+
+// ===============================
+// App Component
+// ===============================
+
+// Main app component that wraps everything inside providers and routers
 const App = () => (
+  // Ant Design ConfigProvider allows global theme customization
   <ConfigProvider
     theme={{
       token: {
-        colorPrimary: '#667eea',
-        borderRadius: 8,
+        colorPrimary: '#667eea', // Sets the main brand color (purple-blue)
+        borderRadius: 8,         // Global border radius for buttons, cards, etc.
       },
     }}
   >
+    {/* AuthProvider gives access to auth context across the app */}
     <AuthProvider>
+      {/* BrowserRouter handles client-side routing */}
       <BrowserRouter>
+        {/* Routes define which component renders for each URL path */}
         <Routes>
+          {/* Root route redirects depending on login state */}
           <Route path="/" element={<RootRedirect />} />
+
+          {/* Authentication routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Catch-all route for undefined paths → renders 404 page */}
+          {/* Add new routes ABOVE this line to avoid overriding */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
   </ConfigProvider>
-);
+)
 
-export default App;
+// Export the App component as default
+export default App
