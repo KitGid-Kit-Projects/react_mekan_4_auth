@@ -4,15 +4,14 @@
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
 | 1   | App.tsx                            | 43              | ./src/App.tsx                                            |
 | 2   | ├── AuthProvider / useAuth         | 50              | ./src/context/AuthContext.tsx                            |
+| 5   |     ├── firebase.js                      | 11              | ./src/pages/Index.tsx                                    |
+| 5   |         ├── .env                      | 11              | ./src/pages/Index.tsx                                    |
 | 4   | └── (Outlet → Routed)              |                 |                                                          |
 | 5   |     ├── Index                      | 11              | ./src/pages/Index.tsx                                    |
 | 6   |     ├── Login                      | 21              | ./src/pages/Login.tsx                                    |
-| 7   |     │   ├── useLogin               | 26              | ./src/hooks/Login/useLogin.ts                            |
-| 8   |     │   └── AuthCard               | 53              | ./src/components/Login/AuthCard.tsx                      |
-| 9   |     │       └── LoginForm          | 67              | ./src/components/Login/LoginForm.tsx                     |
-| 10  |     └── SignUp                     | 30              | ./src/pages/SignUp.tsx                                   |
-| 11  |         └── SignUpForm             | 62              | ./src/components/SignUp/SignUpForm.tsx                   |
-| 12  |             └── useAuthForm        | 34              | ./src/hooks/SignUp/useAuthForm.tsx                       |
+| 7   |         ├── useLogin               | 26              | ./src/hooks/Login/useLogin.ts                            |
+| 8   |         └── AuthCard               | 53              | ./src/components/Login/AuthCard.tsx                      |
+| 9   |             └── LoginForm          | 67              | ./src/components/Login/LoginForm.tsx                     |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
 |     |                 TOTAL CODE LINES   | 397             |                                                          |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
