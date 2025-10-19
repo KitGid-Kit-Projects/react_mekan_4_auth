@@ -1,28 +1,20 @@
 # Component Relation Diagram (CRD)
 
 | No | Tree                               | Lines | Path                                                     |
-|----|------------------------------------|------:|----------------------------------------------------------|
+|----|------------------------------------|-------|----------------------------------------------------------|
 | 01 | App.tsx                            |    58 | ./src/App.tsx                                            |
 | 02 | ├── AuthProvider / useAuth         |   164 | ./src/context/AuthContext.tsx                            |
 | 03 | │   ├── firebase.js                |    29 | ./src/firbase.js                                         |
 | 04 | │   └── .env                       |     6 | ./.env                                                   |
-| 05 | ├── ProtectedRoute                 |    58 | ./src/components/ProtectedRoute.tsx                      |
-| 06 | └── (Outlet → Routed)              |       |                                                          |
-| 07 |     ├── Index                      |    24 | ./src/pages/Index.tsx                                    |
-| 08 |     ├── Login                      |    35 | ./src/pages/Login.tsx                                    |
-| 09 |     │   └── useLogin               |    56 | ./src/hooks/Login/useLogin.ts                            |
-| 10 |     │       └── AuthCard           |    83 | ./src/components/Login/AuthCard.tsx                      |
-| 11 |     │           └── LoginForm      |    87 | ./src/components/Login/LoginForm.tsx                     |
-| 12 |     ├── SignUp                     |    41 | ./src/pages/SignUp.tsx                                   |
-| 13 |     │   └── SignUpForm             |   141 | ./src/components/SignUp/SignUpForm.tsx                   |
-| 14 |     │       └── useAuthForm        |    72 | ./src/hooks/SignUp/useAuthForm.tsx                       |
-| 15 |     ├── Dashboard                  |    65 | ./src/pages/Dashboard.tsx                                |
-| 16 |     │   └── useDashboardData       |    48 | ./src/hooks/Dashboard/useDashboardData.ts                |
-| 17 |     │       ├── AccountInfoCard    |    71 | ./src/components/Dashboard/AccountInfoCard.tsx           |
-| 18 |     │       ├── DashboardHeader    |    65 | ./src/components/Dashboard/DashboardHeader.tsx           |
-| 19 |     │       ├── StatsSection       |    88 | ./src/components/Dashboard/StatsSection.tsx              |
-| 20 |     │       └── WelcomeCard        |    75 | ./src/components/Dashboard/WelcomeCard.tsx               |
-| 21 |     └── NotFound                   |    50 | ./src/pages/NotFound.tsx                                 |
+| 05 | └── (Outlet → Routed)              |       |                                                          |
+| 06 |     ├── Index                      |    24 | ./src/pages/Index.tsx                                    |
+| 07 |     ├── Login                      |    35 | ./src/pages/Login.tsx                                    |
+| 08 |     │   └── useLogin               |    56 | ./src/hooks/Login/useLogin.ts                            |
+| 09 |     │       └── AuthCard           |    83 | ./src/components/Login/AuthCard.tsx                      |
+| 10 |     │           └── LoginForm      |    87 | ./src/components/Login/LoginForm.tsx                     |
+| 11 |     ├── SignUp                     |    41 | ./src/pages/SignUp.tsx                                   |
+| 12 |     │   └── SignUpForm             |   141 | ./src/components/SignUp/SignUpForm.tsx                   |
+| 13 |     │       └── useAuthForm        |    72 | ./src/hooks/SignUp/useAuthForm.tsx                       |
 |----|------------------------------------|-------|----------------------------------------------------------|
-|    |                 TOTAL CODE LINES   |  1316 |                                                          |
+|    |                 TOTAL CODE LINES   |   796 |                                                          |
 |----|------------------------------------|-------|----------------------------------------------------------|
