@@ -12,9 +12,9 @@
 | 08 |     │   └── useLogin               |    56 | ./src/hooks/Login/useLogin.ts                            |
 | 09 |     │       └── AuthCard           |    83 | ./src/components/Login/AuthCard.tsx                      |
 | 10 |     │           └── LoginForm      |    87 | ./src/components/Login/LoginForm.tsx                     |
-| 11 |     ├── SignUp                     |    41 | ./src/pages/SignUp.tsx                                   |
-| 12 |     │   └── SignUpForm             |   141 | ./src/components/SignUp/SignUpForm.tsx                   |
-| 13 |     │       └── useAuthForm        |    72 | ./src/hooks/SignUp/useAuthForm.tsx                       |
+| 11 |     └── SignUp                     |    41 | ./src/pages/SignUp.tsx                                   |
+| 12 |         └── SignUpForm             |   141 | ./src/components/SignUp/SignUpForm.tsx                   |
+| 13 |             └── useAuthForm        |    72 | ./src/hooks/SignUp/useAuthForm.tsx                       |
 |----|------------------------------------|-------|----------------------------------------------------------|
 |    |                 TOTAL CODE LINES   |   796 |                                                          |
 |----|------------------------------------|-------|----------------------------------------------------------|
