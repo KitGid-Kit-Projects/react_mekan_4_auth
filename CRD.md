@@ -1,20 +1,28 @@
 # Component Relation Diagram (CRD)
 
-| No  | Tree                               | Code Line Count | Path                                                     |
-|-----|------------------------------------|-----------------|----------------------------------------------------------|
-| 1   | App.tsx                            | 43              | ./src/App.tsx                                            |
-| 2   | ├── AuthProvider / useAuth         | 68              | ./src/context/AuthContext.tsx                            |
-| 5   | |   ├── firebase.js                      | 11              | ./src/pages/Index.tsx                                    |
-| 5   | |       ├── .env                      | 11              | ./src/pages/Index.tsx                                    |
-| 4   | └── (Outlet → Routed)              |                 |                                                          |
-| 5   |     ├── Index                      | 11              | ./src/pages/Index.tsx                                    |
-| 6   |     ├── Login                      | 21              | ./src/pages/Login.tsx                                    |
-| 7   |     │   ├── useLogin               | 26              | ./src/hooks/Login/useLogin.ts                            |
-| 8   |     │   └── AuthCard               | 53              | ./src/components/Login/AuthCard.tsx                      |
-| 9   |     │       └── LoginForm          | 67              | ./src/components/Login/LoginForm.tsx                     |
-| 10  |     └── SignUp                     | 30              | ./src/pages/SignUp.tsx                                   |
-| 11  |         └── SignUpForm             | 62              | ./src/components/SignUp/SignUpForm.tsx                   |
-| 12  |             └── useAuthForm        | 35              | ./src/hooks/SignUp/useAuthForm.tsx                       |
-|-----|------------------------------------|-----------------|----------------------------------------------------------|
-|     |                 TOTAL CODE LINES   | 416             |                                                          |
-|-----|------------------------------------|-----------------|----------------------------------------------------------|
+| No | Tree                               | Lines | Path                                                     |
+|----|------------------------------------|------:|----------------------------------------------------------|
+| 01 | App.tsx                            |    58 | ./src/App.tsx                                            |
+| 02 | ├── AuthProvider / useAuth         |   164 | ./src/context/AuthContext.tsx                            |
+| 03 | │   ├── firebase.js                |    29 | ./src/firbase.js                                         |
+| 04 | │   └── .env                       |     6 | ./.env                                                   |
+| 05 | ├── ProtectedRoute                 |    58 | ./src/components/ProtectedRoute.tsx                      |
+| 06 | └── (Outlet → Routed)              |       |                                                          |
+| 07 |     ├── Index                      |    24 | ./src/pages/Index.tsx                                    |
+| 08 |     ├── Login                      |    35 | ./src/pages/Login.tsx                                    |
+| 09 |     │   └── useLogin               |    56 | ./src/hooks/Login/useLogin.ts                            |
+| 10 |     │       └── AuthCard           |    83 | ./src/components/Login/AuthCard.tsx                      |
+| 11 |     │           └── LoginForm      |    87 | ./src/components/Login/LoginForm.tsx                     |
+| 12 |     ├── SignUp                     |    41 | ./src/pages/SignUp.tsx                                   |
+| 13 |     │   └── SignUpForm             |   141 | ./src/components/SignUp/SignUpForm.tsx                   |
+| 14 |     │       └── useAuthForm        |    72 | ./src/hooks/SignUp/useAuthForm.tsx                       |
+| 15 |     ├── Dashboard                  |    65 | ./src/pages/Dashboard.tsx                                |
+| 16 |     │   └── useDashboardData       |    48 | ./src/hooks/Dashboard/useDashboardData.ts                |
+| 17 |     │       ├── AccountInfoCard    |    71 | ./src/components/Dashboard/AccountInfoCard.tsx           |
+| 18 |     │       ├── DashboardHeader    |    65 | ./src/components/Dashboard/DashboardHeader.tsx           |
+| 19 |     │       ├── StatsSection       |    88 | ./src/components/Dashboard/StatsSection.tsx              |
+| 20 |     │       └── WelcomeCard        |    75 | ./src/components/Dashboard/WelcomeCard.tsx               |
+| 21 |     └── NotFound                   |    50 | ./src/pages/NotFound.tsx                                 |
+|----|------------------------------------|-------|----------------------------------------------------------|
+|    |                 TOTAL CODE LINES   |  1316 |                                                          |
+|----|------------------------------------|-------|----------------------------------------------------------|
