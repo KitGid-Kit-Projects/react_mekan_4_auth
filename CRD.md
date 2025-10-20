@@ -4,7 +4,7 @@
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
 | 1   | App.tsx                            | 58              | ./src/App.tsx                                            |
 | 2   | ├── AuthProvider / useAuth         | 164             | ./src/context/AuthContext.tsx                            |
-| 3   | |   ├── firebase.js                | 29              | ./src/firbase.js                                         |
+| 3   | |   └── firebase.js                | 29              | ./src/firbase.js                                         |
 | 4   | |       └── .env                   | 6               | ./.env                                                   |
 | 5   | ├── ProtectedRoute                 | 58              | ./src/components/ProtectedRoute.tsx                      |
 | 6   | └── (Outlet → Routed)              |                 |                                                          |
