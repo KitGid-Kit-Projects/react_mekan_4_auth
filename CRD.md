@@ -2,17 +2,16 @@
 
 | No | Tree                               | Lines | Path                                                     |
 |----|------------------------------------|-------|----------------------------------------------------------|
-| 01 | App.tsx                            |    58 | ./src/App.tsx                                            |
-| 02 | ├── AuthProvider / useAuth         |   164 | ./src/context/AuthContext.tsx                            |
-| 03 | │   ├── firebase.js                |    29 | ./src/firbase.js                                         |
+| 01 | App.tsx                            |    50 | ./src/App.tsx                                            |
+| 02 | ├── AuthProvider / useAuth         |    52 | ./src/context/AuthContext.tsx                            |
+| 03 | │   └── firebase.js                |     29 | ./src/firbase.js                                         |
 | 04 | │       └── .env                   |     6 | ./.env                                                   |
-| 05 | ├── ProtectedRoute                 |    58 | ./src/components/ProtectedRoute.tsx                      |
-| 06 | └── (Outlet → Routed)              |       |                                                          |
-| 07 |     ├── Index                      |    24 | ./src/pages/Index.tsx                                    |
-| 08 |     └── Login                      |    35 | ./src/pages/Login.tsx                                    |
-| 09 |         └── useLogin               |    56 | ./src/hooks/Login/useLogin.ts                            |
-| 10 |             └── AuthCard           |    83 | ./src/components/Login/AuthCard.tsx                      |
-| 11 |                 └── LoginForm      |    87 | ./src/components/Login/LoginForm.tsx                     |
+| 05 | └── (Outlet → Routed)              |       |                                                          |
+| 06 |     ├── Index                      |    21 | ./src/pages/Index.tsx                                    |
+| 07 |     └── Login                      |    23 | ./src/pages/Login.tsx                                    |
+| 08 |         └── useLogin               |    26 | ./src/hooks/Login/useLogin.ts                            |
+| 09 |             └── AuthCard           |    66 | ./src/components/Login/AuthCard.tsx                      |
+| 10 |                 └── LoginForm      |    72 | ./src/components/Login/LoginForm.tsx                     |
 |----|------------------------------------|-------|----------------------------------------------------------|
-|    |          TOTAL CODE LINES          |   600 |                                                          |
+|    |          TOTAL CODE LINES          |   345 |                                                          |
 |----|------------------------------------|-------|----------------------------------------------------------|
