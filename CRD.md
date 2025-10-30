@@ -4,7 +4,7 @@
 |----|------------------------------------|-------|----------------------------------------------------------|
 | 01 | App.tsx                            |    50 | ./src/App.tsx                                            |
 | 02 | ├── AuthProvider / useAuth         |    52 | ./src/context/AuthContext.tsx                            |
-| 03 | │   └── firebase.js                |     29 | ./src/firbase.js                                         |
+| 03 | │   └── firebase.js                |     29 | ./src/firebase.js                                       |
 | 04 | │       └── .env                   |     6 | ./.env                                                   |
 | 05 | └── (Outlet → Routed)              |       |                                                          |
 | 06 |     ├── Index                      |    21 | ./src/pages/Index.tsx                                    |
