@@ -5,14 +5,11 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
 // Import Ant Design's ConfigProvider for global theming
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, Spin } from 'antd'
 
 // Import the AuthProvider (context) and useAuth hook to manage authentication state
 import { AuthProvider, useAuth } from "./context/AuthContext"
 
-// Import main pages for the app
-import Login from "./pages/Login"
-import SignUp from "./pages/SignUp"
 import NotFound from "./pages/NotFound"
 
 // ===============================
@@ -26,7 +23,13 @@ const RootRedirect: React.FC = () => {
 
   // If auth state is still loading, display a temporary loading screen
   if (loading) {
-    return <div>Loading...</div>
+    return <div style={{
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center',
+      width:'100%',
+      height:'100vh'
+    }}><Spin/></div>
   }
 
   // Once loading finishes:
@@ -62,8 +65,7 @@ const App = () => (
           <Route path="/" element={<RootRedirect />} />
 
           {/* Authentication routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+
 
           {/* Catch-all route for undefined paths → renders 404 page */}
           {/* Add new routes ABOVE this line to avoid overriding */}
