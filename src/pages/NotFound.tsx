@@ -1,75 +1,75 @@
-// Import React and hooks
-import React, { useEffect } from "react";
+// Import React and the useEffect hook
+import React, { useEffect } from "react"
 
-// Import router utilities to detect current route and navigate
-import { useLocation, Link } from "react-router-dom";
+// Import React Router utilities for navigation and route information
+import { useLocation, Link } from "react-router-dom"
 
-// Import Ant Design components for clean layout and UI
-import { Result, Button } from "antd";
+// Import Ant Design UI components for layout and styling
+import { Button } from "antd"
 
-// Import Ant Design icon for the home button
-import { HomeOutlined } from "@ant-design/icons";
+// Import a home icon for the "Back Home" button
+import { HomeOutlined } from "@ant-design/icons"
 
-// --------------------------------------------
-// 🔹 NotFound Component (404 Page)
-// --------------------------------------------
-// This page is displayed when a user visits a route that doesn't exist.
+// Define the NotFound component (renders when no route matches)
 const NotFound: React.FC = () => {
-  // Access the current location (URL path) using React Router
-  const location = useLocation();
+  // useLocation gives access to the current URL path
+  const location = useLocation()
 
-  // useEffect runs when component mounts or when the path changes
+  // useEffect logs an error message whenever the user visits a non-existent route
   useEffect(() => {
-    // Log the missing route to the console (useful for debugging)
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname
-    );
-  }, [location.pathname]); // Re-run effect if the path changes
+    )
+  }, [location.pathname]) // Runs again if the route changes
 
-  // --------------------------------------------
-  // 🔹 UI Rendering
-  // --------------------------------------------
+  // Return the 404 error page layout
   return (
-    // Outer container — full screen, centered content, and gradient background
     <div
       style={{
         minHeight: "100vh", // Full viewport height
-        display: "flex", // Flexbox layout
-        justifyContent: "center", // Center horizontally
-        alignItems: "center", // Center vertically
+        display: "flex", // Enables flexbox
+        justifyContent: "center", // Centers horizontally
+        alignItems: "center", // Centers vertically
         background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)", // Soft gradient background
       }}
     >
-      {/* Ant Design Result component — provides pre-styled status messages */}
-      <Result
-        status="404" // Displays the 404 status style
-        title="404" // Large title text
-        subTitle="Sorry, the page you visited does not exist." // Subtitle text
-
-        // Extra section — includes a link back to the homepage
-        extra={
+      {/* Simple custom 404 card to avoid AntD Result JSX typing issues */}
+      <div
+        style={{
+          textAlign: "center",
+          padding: "40px",
+          background: "white",
+          borderRadius: "12px",
+          boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+          minWidth: 320,
+        }}
+      >
+        <h1 style={{ fontSize: 64, margin: 0 }}>404</h1>
+        <p style={{ marginTop: 12, color: "#666", fontSize: 16 }}>
+          Sorry, the page you visited does not exist.
+        </p>
+        <div style={{ marginTop: 24 }}>
           <Link to="/">
             <Button
-              type="primary" // Primary style button
-              icon={<HomeOutlined />} // Home icon on the button
+              type="primary"
+              icon={<HomeOutlined />}
               style={{
-                background:
-                  "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", // Match your brand gradient
-                border: "none", // Remove default border
-                borderRadius: "8px", // Rounded corners
-                height: "40px", // Consistent height
-                fontWeight: "500", // Slightly bold text
+                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                border: "none",
+                borderRadius: "8px",
+                height: "40px",
+                fontWeight: "500",
               }}
             >
               Back Home
             </Button>
           </Link>
-        }
-      />
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-// Export the NotFound component so it can be used in your Router setup
-export default NotFound;
+// Export the component for routing usage
+export default NotFound
