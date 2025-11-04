@@ -2,12 +2,12 @@
 
 | No  | Tree                               | Code Line Count | Path                                                     |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
-| 01  | App.tsx                            | 79              | ./src/App.tsx                                            |
-| 02  | ├── AuthProvider / useAuth         | 53              | ./src/context/AuthContext.tsx                            |
-| 03  | │   └── firebase.js                | 29              | ./src/firebase.js                                        |
-| 04  | │       └── .env                   | 6               | ./.env                                                   |
+| 01  | App.tsx                            | 40              | ./src/App.tsx                                            |
+| 02  | ├── AuthProvider / useAuth         | 30              | ./src/context/AuthContext.tsx                            |
+| 03  | │   └── firebase.js                | 20              | ./src/firebase.js                                        |
+| 04  | │       └── .env                   | 7               | ./.env                                                   |
 | 05  | └── (Outlet → Routed)              |                 |                                                          |
 | 06  |     └── NotFound                   | 74              | ./src/pages/NotFound.tsx                                 |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
-|     |                 TOTAL CODE LINES   | 241             |                                                          |
+|     |                 TOTAL CODE LINES   | 155             |                                                          |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
