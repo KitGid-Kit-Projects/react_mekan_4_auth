@@ -5,7 +5,7 @@ import React, { useEffect } from "react"
 import { useLocation, Link } from "react-router-dom"
 
 // Import Ant Design UI components for layout and styling
-import { Result, Button } from "antd"
+import { Button } from "antd"
 
 // Import a home icon for the "Back Home" button
 import { HomeOutlined } from "@ant-design/icons"
@@ -34,30 +34,39 @@ const NotFound: React.FC = () => {
         background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)", // Soft gradient background
       }}
     >
-      {/* Ant Design Result component for pre-styled feedback screens */}
-      <Result
-        status="404" // Shows a "404" status
-        title="404" // Large 404 title text
-        subTitle="Sorry, the page you visited does not exist." // Message below title
-        extra={
-          // "Back Home" button inside a Link to navigate to the homepage
+      {/* Simple custom 404 card to avoid AntD Result JSX typing issues */}
+      <div
+        style={{
+          textAlign: "center",
+          padding: "40px",
+          background: "white",
+          borderRadius: "12px",
+          boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+          minWidth: 320,
+        }}
+      >
+        <h1 style={{ fontSize: 64, margin: 0 }}>404</h1>
+        <p style={{ marginTop: 12, color: "#666", fontSize: 16 }}>
+          Sorry, the page you visited does not exist.
+        </p>
+        <div style={{ marginTop: 24 }}>
           <Link to="/">
             <Button
-              type="primary" // Primary style button
-              icon={<HomeOutlined />} // Home icon on the left side
+              type="primary"
+              icon={<HomeOutlined />}
               style={{
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", // Gradient button color
-                border: "none", // Remove default border
-                borderRadius: "8px", // Rounded corners
-                height: "40px", // Button height
-                fontWeight: "500", // Medium font weight
+                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                border: "none",
+                borderRadius: "8px",
+                height: "40px",
+                fontWeight: "500",
               }}
             >
               Back Home
             </Button>
           </Link>
-        }
-      />
+        </div>
+      </div>
     </div>
   )
 }
