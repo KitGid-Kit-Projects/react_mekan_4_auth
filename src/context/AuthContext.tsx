@@ -1,6 +1,6 @@
 // Import React hooks and types from React and Firebase
 import { createContext, useContext, useState } from 'react';
-import { User } from 'firebase/auth'; // Import the User type from Firebase Auth
+import type { User } from 'firebase/auth'; // Import the User type from Firebase Auth
 
 // Define the shape of the authentication context data
 interface AuthContextType {
