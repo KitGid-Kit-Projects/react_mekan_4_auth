@@ -2,12 +2,12 @@
 
 | No  | Tree                               | Code Line Count | Path                                                     |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
-| 1   | App.tsx                            | 37              | ./src/App.tsx                                            |
-| 2   | ├── AuthProvider / useAuth         | 29              | ./src/context/AuthContext.tsx                            |
-| 5   | │   └── firebase.js                | 11              | ./src/pages/Index.tsx                                    |
-| 5   | │       └── .env                   | 11              | ./src/pages/Index.tsx                                    |
+| 01  | App.tsx                            | 79              | ./src/App.tsx                                            |
+| 02  | ├── AuthProvider / useAuth         | 53              | ./src/context/AuthContext.tsx                            |
+| 03  | │   └── firebase.js                | 29              | ./src/firebase.js                                        |
+| 04  | │       └── .env                   | 6               | ./.env                                                   |
 | 05  | └── (Outlet → Routed)              |                 |                                                          |
-| 20  |     └── NotFound                   | 70              | ./src/pages/NotFound.tsx                                 |
+| 06  |     └── NotFound                   | 74              | ./src/pages/NotFound.tsx                                 |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
-|     |                 TOTAL CODE LINES   | 365             |                                                          |
+|     |                 TOTAL CODE LINES   | 241             |                                                          |
 |-----|------------------------------------|-----------------|----------------------------------------------------------|
