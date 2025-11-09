@@ -12,7 +12,6 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 
 // Import page components
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 
 // --------------------------------------------
@@ -62,7 +61,6 @@ const App = () => (
 
           {/* Public routes */}
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
 
           {/* Protected route placeholder — replace with real dashboard component later */}
           <Route 
