@@ -13,7 +13,6 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 // Import page components
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 // --- ROOT REDIRECT COMPONENT ---
@@ -56,13 +55,6 @@ const App = () => (
           {/* --- AUTHENTICATION ROUTES --- */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-
-          {/* --- DASHBOARD ROUTE --- */}
-          {/* Accessible only to authenticated users (can be protected later) */}
-          <Route 
-            path="/dashboard" 
-            element={<Dashboard />} 
-          />
 
           {/* --- CATCH-ALL 404 ROUTE --- */}
           {/* This route will match any unknown path and show the NotFound page */}
