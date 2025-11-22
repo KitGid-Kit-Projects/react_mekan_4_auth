@@ -1,14 +1,14 @@
 // Import React core functions and hooks
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+import type { User, UserCredential } from "firebase/auth";
+
 // Import Firebase authentication methods and types
 import {
-  User, // Firebase User type
   createUserWithEmailAndPassword, // Creates a new user
   signInWithEmailAndPassword, // Signs in an existing user
   signOut as firebaseSignOut, // Signs out the current user
   onAuthStateChanged, // Listens for changes in authentication state
-  UserCredential // Type returned when a user signs in or signs up
 } from 'firebase/auth';
 
 // Import initialized Firebase auth instance
