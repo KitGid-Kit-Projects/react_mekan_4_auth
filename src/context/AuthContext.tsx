@@ -1,11 +1,11 @@
 // Import React utilities for context, state, and component creation
 import React, { createContext, useContext, useState } from 'react'
 
+import type { User, UserCredential } from "firebase/auth";
+
 // Import Firebase authentication types and methods
 import {
-  User, // Represents the Firebase user object
   signInWithEmailAndPassword, // Firebase method to sign in users
-  UserCredential, // Represents the result of a sign-in attempt
 } from 'firebase/auth'
 
 // Import the configured Firebase auth instance
