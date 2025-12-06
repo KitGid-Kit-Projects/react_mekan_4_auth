@@ -2,13 +2,16 @@
 import React from "react";
 
 // Import UI components from Ant Design
-import { Card, Space, Typography, Divider, Button } from "antd";
+import { Card, Space, Typography, Divider, Button, Alert } from "antd";
 
 // Import user icon from Ant Design Icons
 import { UserOutlined } from "@ant-design/icons";
 
 // Import Link for navigation between pages (React Router)
 import { Link } from "react-router-dom";
+
+// Import ReCAPTCHA component
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Import the custom LoginForm component
 import LoginForm from "./LoginForm";
@@ -20,10 +23,19 @@ const { Title, Text } = Typography;
 interface Props {
   onSubmit: (values: { email: string; password: string }) => void; // Function to handle login form submission
   loading: boolean; // Indicates whether login is in progress
+  recaptchaRef: React.RefObject<ReCAPTCHA>; // Ref for reCAPTCHA component
+  captchaError?: string | null; // CAPTCHA error message
+  recaptchaSiteKey?: string; // reCAPTCHA site key
 }
 
 // Define functional component
-const AuthCard: React.FC<Props> = ({ onSubmit, loading }) => (
+const AuthCard: React.FC<Props> = ({ 
+  onSubmit, 
+  loading, 
+  recaptchaRef,
+  captchaError,
+  recaptchaSiteKey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key for development
+}) => (
   // Card component acts as the container for the login form
   <Card
     style={{
@@ -52,6 +64,37 @@ const AuthCard: React.FC<Props> = ({ onSubmit, loading }) => (
 
       {/* Login form component (handles email/password submission) */}
       <LoginForm onSubmit={onSubmit} loading={loading} />
+
+      {/* Show CAPTCHA error if any */}
+      {captchaError && (
+        <Alert
+          message={captchaError}
+          type="error"
+          showIcon
+          style={{ marginBottom: "16px" }}
+        />
+      )}
+
+      {/* reCAPTCHA Component */}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={recaptchaSiteKey}
+          theme="light" // Can be "light" or "dark"
+          size="normal" // Can be "normal", "compact", or "invisible"
+          onChange={() => {
+            // CAPTCHA has been completed
+            // This triggers when user successfully completes the CAPTCHA
+          }}
+        />
+      </div>
+
+      {/* Security note */}
+      <Text type="secondary" style={{ fontSize: "12px", textAlign: "center", display: "block" }}>
+        This site is protected by reCAPTCHA and the Google 
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"> Privacy Policy</a> and
+        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer"> Terms of Service</a> apply.
+      </Text>
 
       {/* Divider with text prompting signup for new users */}
       <Divider style={{ margin: "8px 0" }}>

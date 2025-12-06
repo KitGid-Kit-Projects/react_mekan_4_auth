@@ -10,7 +10,7 @@ import React from "react";
 // Define the Login page as a React functional component
 const Login: React.FC = () => {
   // Extract loading state and login handler from the custom useLogin hook
-  const { loading, handleLogin } = useLogin();
+  const { loading, handleLogin, recaptchaRef } = useLogin();
 
   // Return JSX structure for the login page
   return (
@@ -26,7 +26,11 @@ const Login: React.FC = () => {
       }}
     >
       {/* AuthCard component displays the actual login form */}
-      <AuthCard onSubmit={handleLogin} loading={loading} />
+      <AuthCard 
+        onSubmit={handleLogin} 
+        loading={loading} 
+        recaptchaRef={recaptchaRef}
+      />
     </div>
   );
 };

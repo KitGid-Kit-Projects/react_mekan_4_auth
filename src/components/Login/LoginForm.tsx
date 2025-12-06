@@ -41,6 +41,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, loading }) => {
           prefix={<MailOutlined />} // Adds mail icon before input
           placeholder="Enter your email" // Placeholder text
           style={{ borderRadius: "8px" }} // Rounded input edges
+          disabled={loading} // Disable when loading
         />
       </Form.Item>
 
@@ -57,6 +58,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, loading }) => {
           prefix={<LockOutlined />} // Lock icon for password
           placeholder="Enter your password"
           style={{ borderRadius: "8px" }}
+          disabled={loading} // Disable when loading
         />
       </Form.Item>
 
@@ -66,6 +68,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, loading }) => {
           type="primary" // Primary color button
           htmlType="submit" // Makes button submit the form
           loading={loading} // Shows loading spinner when true
+          disabled={loading} // Disable when loading
           style={{
             width: "100%", // Full width
             height: "48px", // Taller for accessibility
