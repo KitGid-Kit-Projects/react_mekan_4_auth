@@ -11,6 +11,7 @@ import { ConfigProvider, Spin } from 'antd'
 import { AuthProvider, useAuth } from "./context/AuthContext"
 
 import NotFound from "./pages/NotFound"
+import Login from './pages/Login'
 
 // ===============================
 // RootRedirect Component
@@ -65,7 +66,7 @@ const App = () => (
           <Route path="/" element={<RootRedirect />} />
 
           {/* Authentication routes */}
-
+          <Route path="/login" element={<Login/>} />
 
           {/* Catch-all route for undefined paths → renders 404 page */}
           {/* Add new routes ABOVE this line to avoid overriding */}
